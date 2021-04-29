@@ -1,0 +1,3 @@
+[submodule "dwm_patches"]
+	path = dwm_patches
+	url = https://github.com/empdo/dwm_patches.git

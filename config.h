@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 40;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 
@@ -43,6 +43,7 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int decorhints  = 1;    /* 1 means respect decoration hints */
+static const char *decor_ignore_list[] = {"firefox", "Navigator"};
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */

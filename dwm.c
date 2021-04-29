@@ -20,6 +20,7 @@
  *
  * To understand everything else, start reading main().
  */
+#include <X11/X.h>
 #include <errno.h>
 #include <locale.h>
 #include <signal.h>
@@ -2344,6 +2345,15 @@ updatemotifhints(Client *c)
 	unsigned long n, extra;
 	unsigned long *motif;
 	int width, height;
+
+    XClassHint class_hint;
+    XGetClassHint(dpy, c->win, &class_hint);
+//    if (XGetClassHint(dpy, c->win, &class_hint) == Success){
+    for(int i = 0; i < sizeof(decor_ignore_list)/sizeof(char*);i++) {
+        if(strcmp(class_hint.res_class, decor_ignore_list[i]) != 0){
+            return;
+        }
+    }
 
 	if (!decorhints)
 		return;
