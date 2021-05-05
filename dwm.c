@@ -2348,7 +2348,6 @@ updatemotifhints(Client *c)
 
     XClassHint class_hint;
     XGetClassHint(dpy, c->win, &class_hint);
-//    if (XGetClassHint(dpy, c->win, &class_hint) == Success){
     for(int i = 0; i < sizeof(decor_ignore_list)/sizeof(char*);i++) {
         if(strcmp(class_hint.res_class, decor_ignore_list[i]) != 0){
             return;

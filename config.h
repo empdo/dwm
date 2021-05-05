@@ -14,11 +14,12 @@ static const char *altbarcmd        = "$HOME/.scripts/start_polybar.sh"; /* Alte
 
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#1c1c1c";
-static const char col_gray3[]       = "#000000";
-static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#363636";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#363636";  //not active border
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#d9d9d9";  //active border
+static const char col_dmenu[]       = "#CCB2D5";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -65,9 +66,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run"};
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *alt_dmenu[] = { "/home/emil/.scripts/altdmenu.sh", NULL };
+static const char *sm_dmenu[] = { "/home/emil/.scripts/softwaremanager.sh", NULL };
 static const char *xkill[] = { "xkill", NULL };
 
 #include "movestack.c"
@@ -75,6 +77,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,                       XK_p,      spawn,          {.v = alt_dmenu } },
+	{ MODKEY|ShiftMask,                       XK_o,      spawn,          {.v = sm_dmenu } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = xkill } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
