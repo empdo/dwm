@@ -71,6 +71,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *alt_dmenu[] = { "/home/emil/.scripts/altdmenu.sh", NULL };
 static const char *sm_dmenu[] = { "/home/emil/.scripts/softwaremanager.sh", NULL };
 static const char *xkill[] = { "xkill", NULL };
+static const char *lock[] = { "lock", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -80,6 +81,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                       XK_o,      spawn,          {.v = sm_dmenu } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = xkill } },
+	{ MODKEY|ShiftMask,                       XK_x,      spawn,          {.v = lock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
